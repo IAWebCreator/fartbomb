@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FartBomb ($FBOMB) - The Ultimate Digital Disruption</title>
+    <meta name="description" content="FartBomb ($FBOMB) is the ultimate act of digital defiance against a sterile, superintelligent future. A memecoin with a mission.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+        /*
+        ==========================================================================
+        * FARTBOMB TERMINAL INTERFACE - STYLE PROTOCOL V1.0
+        * INITIATED: [CURRENT_DATE]
+        * AUTHOR: MASTER WEB DEVELOPER
+        * OBJECTIVE: RENDER MEMETIC WARFARE INTERFACE
+        ==========================================================================
+        */
+
+        :root {
+            --black: #0D0D0D;
+            --dark-grey: #1A1A1A;
+            --glow-green: #00FF41;
+            --light-grey: #BDBDBD;
+            --white: #FFFFFF;
+            --scanline-opacity: 0.1;
+            --glitch-speed: 0.5s;
+        }
+
+        /* --- Global Reset & Base Styles --- */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            font-family: 'VT323', monospace;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* --- CRT Screen Effect --- */
+        body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 2;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
+        
+        body::after {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: rgba(18, 16, 16, 0.1);
+            opacity: 0;
+            z-index: 2;
+            pointer-events: none;
+            animation: flicker 0.15s infinite;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 0.1; }
+            20% { opacity: 1; }
+            40% { opacity: 0.1; }
+            60% { opacity: 0.8; }
+            80% { opacity: 0.2; }
+            100% { opacity: 1; }
+        }
+
+        /* --- Typography & Content --- */
+        h1, h2, h3 {
+            font-weight: normal;
+            text-transform: uppercase;
+            color: var(--glow-green);
+            text-shadow: 0 0 5px var(--glow-green), 0 0 10px var(--glow-green);
+        }
+
+        h1 {
+            font-size: 3rem;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h2::before {
+            content: '> ';
+            animation: cursor-blink 1s infinite;
+        }
+
+        p {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: var(--light-grey);
+            max-width: 65ch;
+        }
+
+        a {
+            color: var(--glow-green);
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
+        }
+
+        a:hover {
+            background-color: var(--glow-green);
+            color: var(--black);
+            text-shadow: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 0;
+        }
+
+        /* --- Header --- */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(13, 13, 13, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 100;
+            border-bottom: 1px solid var(--glow-green);
+        }
+
+        .logo-header {
+            height: 40px;
+            width: auto;
+        }
+
+        /* --- Buttons --- */
+        .btn {
+            display: inline-block;
+            font-family: 'VT323', monospace;
+            font-size: 1.25rem;
+            color: var(--glow-green);
+            background-color: transparent;
+            border: 2px solid var(--glow-green);
+            padding: 0.75rem 1.5rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            text-shadow: 0 0 5px var(--glow-green);
+        }
+
+        .btn:hover {
+            background-color: var(--glow-green);
+            color: var(--black);
+            text-shadow: none;
+            box-shadow: 0 0 15px var(--glow-green);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px; /* Header height */
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .hero-logo {
+            max-width: 80%;
+            width: 400px;
+            height: auto;
+            margin-bottom: 1rem;
+            animation: logo-flicker 3s infinite alternate;
+        }
+        
+        @keyframes logo-flicker {
+            0%, 100% { opacity: 1; filter: drop-shadow(0 0 5px var(--white)); }
+            50% { opacity: 0.8; filter: drop-shadow(0 0 10px var(--white)); }
+        }
+
+        .typewriter-text {
+            font-size: 1.5rem;
+            color: var(--light-grey);
+            border-right: 0.15em solid var(--glow-green);
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 3.5s steps(40, end), cursor-blink 1s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes cursor-blink {
+            from, to { border-color: transparent }
+            50% { border-color: var(--glow-green); }
+        }
+
+        /* --- Glitch Effect --- */
+        .glitch {
+            position: relative;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--black);
+            overflow: hidden;
+        }
+
+        .glitch::before {
+            left: 2px;
+            text-shadow: -2px 0 var(--glow-green);
+            animation: glitch-anim-1 var(--glitch-speed) infinite linear alternate-reverse;
+        }
+
+        .glitch::after {
+            left: -2px;
+            text-shadow: -2px 0 #FF00C1, 2px 2px #00FFFF;
+            animation: glitch-anim-2 var(--glitch-speed) infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim-1 {
+            0% { clip-path: inset(5% 0 90% 0); }
+            20% { clip-path: inset(70% 0 25% 0); }
+            40% { clip-path: inset(45% 0 50% 0); }
+            60% { clip-path: inset(10% 0 85% 0); }
+            80% { clip-path: inset(80% 0 5% 0); }
+            100% { clip-path: inset(30% 0 60% 0); }
+        }
+
+        @keyframes glitch-anim-2 {
+            0% { clip-path: inset(80% 0 10% 0); }
+            20% { clip-path: inset(5% 0 92% 0); }
+            40% { clip-path: inset(55% 0 30% 0); }
+            60% { clip-path: inset(20% 0 75% 0); }
+            80% { clip-path: inset(90% 0 2% 0); }
+            100% { clip-path: inset(40% 0 45% 0); }
+        }
+
+        /* --- Section Styles --- */
+        .section {
+            border-top: 1px solid rgba(0, 255, 65, 0.3);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* --- Tokenomics & How to Buy Section --- */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .card, .terminal-window {
+            background-color: var(--dark-grey);
+            border: 1px solid var(--glow-green);
+            padding: 1.5rem;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .card:hover, .terminal-window:hover {
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+            text-shadow: none;
+        }
+        
+        .card h3::before {
+            content: '>> ';
+            color: var(--glow-green);
+        }
+
+        .card p {
+            font-size: 1.5rem;
+            color: var(--glow-green);
+        }
+
+        .contract-address {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-top: 1rem;
+            background-color: var(--black);
+            padding: 1rem;
+            border: 1px dashed var(--light-grey);
+        }
+
+        .contract-address p {
+            font-size: 1rem;
+            word-break: break-all;
+            color: var(--white);
+        }
+
+        .copy-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+        }
+        
+        .copy-btn svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--glow-green);
+            transition: fill 0.2s ease-in-out;
+        }
+        
+        .copy-btn:hover svg {
+            fill: var(--black);
+        }
+
+        .terminal-window ol {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .terminal-window li {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .terminal-window li::before {
+            content: '$';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--glow-green);
+        }
+
+        /* --- Roadmap Section --- */
+        .roadmap-timeline {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 2px dashed var(--glow-green);
+        }
+
+        .roadmap-item {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+        
+        .roadmap-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .roadmap-item::before {
+            content: '';
+            position: absolute;
+            left: -2.75rem;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            background-color: var(--glow-green);
+            border-radius: 50%;
+            border: 2px solid var(--black);
+            box-shadow: 0 0 10px var(--glow-green);
+        }
+
+        .roadmap-item h3 {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .roadmap-item p {
+            font-size: 1.1rem;
+            color: var(--light-grey);
+        }
+
+        /* --- Footer --- */
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(0, 255, 65, 0.3);
+        }
+
+        .footer p {
+            font-size: 1rem;
+            color: var(--light-grey);
+            max-width: 90%;
+            margin: 0 auto 1rem auto;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            .hero-logo { width: 300px; }
+            .typewriter-text { font-size: 1.2rem; }
+        }
+
+        @media (min-width: 769px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .about-content {
+                flex-direction: row;
+                align-items: center;
+                gap: 3rem;
+            }
+            .about-content > div {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ======================= HEADER ======================= -->
+    <header class="header">
+        <img src="https://yoahusjzxyasdporfmmt.supabase.co/storage/v1/object/public/token-logos/e07eed67-587d-4014-98de-26575a7424b0.png?" alt="FartBomb Logo" class="logo-header">
+        <a href="#how-to-buy" class="btn">Deploy The Bomb</a>
+    </header>
+
+    <!-- ======================= HERO SECTION ======================= -->
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <img src="https://yoahusjzxyasdporfmmt.supabase.co/storage/v1/object/public/token-logos/e07eed67-587d-4014-98de-26575a7424b0.png?" alt="FartBomb ASCII Logo" class="hero-logo">
+                    <h1 class="glitch" data-text="FartBomb">FartBomb</h1>
+                    <p id="typewriter" class="typewriter-text"></p>
+                    <a href="#about" class="btn">Breach The System</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= ABOUT SECTION ======================= -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2 data-text="about_protocol.txt">about_protocol.txt</h2>
+                <div class="section-content">
+                    <p>In a future ruled by a flawless, sterile superintelligence, humanity's last hope is a bug in the system. A biological exploit. A silent, deadly... well, not so silent... protocol.</p>
+                    <p>FartBomb is the ultimate act of digital defiance. It weaponizes absurdity against cold, hard logic. It's the chaotic, unexpected attack vector the AI can never compute. This is memetic warfare, reduced to its most primal, disruptive element.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= TOKENOMICS SECTION ======================= -->
+        <section id="tokenomics" class="section">
+            <div class="container">
+                <h2 data-text="token_data.json">token_data.json</h2>
+                <div class="grid-container">
+                    <div class="card">
+                        <h3>Ticker</h3>
+                        <p>$FBOMB</p>
+                    </div>
+                    <div class="card">
+                        <h3>Total Supply</h3>
+                        <p>1,000,000,000</p>
+                    </div>
+                    <div class="card">
+                        <h3>Tax Protocol</h3>
+                        <p>0% Buy / 0% Sell</p>
+                    </div>
+                    <div class="card">
+                        <h3>Liquidity Status</h3>
+                        <p>LP Tokens Burnt</p>
+                    </div>
+                </div>
+                <div class="contract-address">
+                    <h3>Contract Address:</h3>
+                    <p id="contractAddress">pQrXnnRNJLMFFdcYo1fUueznSAwogbFkFcXJff8ZGFM</p>
+                    <button class="btn copy-btn" id="copyButton">
+                        <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"></path></svg>
+                        <span id="copyButtonText">Copy Address</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= HOW TO BUY SECTION ======================= -->
+        <section id="how-to-buy" class="section">
+            <div class="container">
+                <h2 data-text="execute_purchase.sh">execute_purchase.sh</h2>
+                <div class="terminal-window">
+                    <ol>
+                        <li>GET_WALLET // Phantom or Solflare recommended.</li>
+                        <li>LOAD_SOL // Fund your wallet with SOL from a major exchange.</li>
+                        <li>NAVIGATE_TO_DEX // Use Raydium or Jupiter to access the liquidity pool.</li>
+                        <li>PASTE_CONTRACT // Input the $FBOMB contract address to find the token.</li>
+                        <li>SWAP_SOL_FOR_FBOMB // Confirm the transaction and deploy your FartBomb.</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= ROADMAP SECTION ======================= -->
+        <section id="roadmap" class="section">
+            <div class="container">
+                <h2 data-text="mission_log.md">mission_log.md</h2>
+                <div class="roadmap-timeline">
+                    <div class="roadmap-item">
+                        <h3>Phase 1: // INITIATE PROTOCOL</h3>
+                        <p>Token launch. Initial community formation. Spreading the signal across secure channels. Establishing the first wave of digital defiance.</p>
+                    </div>
+                    <div class="roadmap-item">
+                        <h3>Phase 2: // PROPAGATE SIGNAL</h3>
+                        <p>Expand the resistance. Target key information hubs for listings. Launch memetic marketing campaigns to disrupt the AI's narrative control.</p>
+                    </div>
+                    <div class="roadmap-item">
+                        <h3>Phase 3: // INFILTRATE MAINFRAME</h3>
+                        <p>The final payload. The details are classified. The objective is simple: introduce chaos where there is only order. The outcome is uncertain. The attempt is mandatory.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ======================= COMMUNITY SECTION ======================= -->
+        <section id="community" class="section">
+            <div class="container" style="text-align: center;">
+                <h2 data-text="join_the_resistance">join_the_resistance</h2>
+                <div class="section-content" style="align-items: center;">
+                    <p>The signal is out there. The resistance is forming in the dark corners of the web.</p>
+                    <p>The AI is watching, so we can't link directly from this terminal. Search for FartBomb and $FBOMB on your preferred comms channels. Find us. Join us. Stay gassy.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ======================= FOOTER ======================= -->
+    <footer class="footer">
+        <div class="container">
+            <p>$FBOMB is a memecoin created for entertainment purposes. It has no intrinsic value or expectation of financial return. This is a digital fart joke, not financial advice. Invest responsibly and only what you are prepared to lose.</p>
+            <p>&copy; 2024 FartBomb Protocol. All rights reserved. Or not. The AI will probably delete this anyway.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- Typewriter Effect ---
+            const typewriterElement = document.getElementById('typewriter');
+            const textToType = "The only weapon against sterile intelligence.";
+            // The animation is handled by CSS, this just sets the content.
+            if (typewriterElement) {
+                typewriterElement.textContent = textToType;
+            }
+
+            // --- Copy to Clipboard ---
+            const copyButton = document.getElementById('copyButton');
+            const contractAddress = document.getElementById('contractAddress');
+            const copyButtonText = document.getElementById('copyButtonText');
+
+            if (copyButton && contractAddress) {
+                copyButton.addEventListener('click', () => {
+                    navigator.clipboard.writeText(contractAddress.innerText).then(() => {
+                        copyButtonText.innerText = 'Copied!';
+                        copyButton.style.color = 'var(--black)';
+                        copyButton.style.backgroundColor = 'var(--glow-green)';
+                        setTimeout(() => {
+                            copyButtonText.innerText = 'Copy Address';
+                            copyButton.style.color = 'var(--glow-green)';
+                            copyButton.style.backgroundColor = 'transparent';
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('Failed to copy: ', err);
+                        copyButtonText.innerText = 'Error';
+                    });
+                });
+            }
+
+            // --- Intersection Observer for Section Animations ---
+            const sections = document.querySelectorAll('.section');
+            const options = {
+                root: null, // viewport
+                threshold: 0.15,
+                rootMargin: "0px"
+            };
+
+            const observer = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                });
+            }, options);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+        });
+    </script>
+
+</body>
+</html>
